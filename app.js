@@ -22,13 +22,12 @@ const game = () => {
     const hands = document.querySelectorAll(".hands img");
 
     //animationed event
-    for (const hand of hands) {
+    for (const hand of hands) { 
       hand.addEventListener("animationend", () => {
         // option refers to current item, no need for 'this'
         hand.style.animation = "";
       })
     }
-    
     
     //Computer Options
     const computerOptions = ["rock", "paper", "scissors"];
@@ -36,8 +35,10 @@ const game = () => {
     
     for (const option of options)  {
       option.addEventListener("click", () => {
+        function myFunction() {
+          document.querySelector(".options").disabled = true;
+        }
         
-
         //Computer Choice
         const computerNumber = Math.floor(Math.random() * 3);
         const computerChoice = computerOptions[computerNumber];
@@ -53,8 +54,8 @@ const game = () => {
           //Animation
           playerHand.style.animation = "shakePlayer 2s ease";
           computerHand.style.animation = "shakeComputer 2s ease";
-          
       });
+
     };
   };
   
@@ -208,3 +209,4 @@ const game = () => {
 
 //start the game function
 game();
+
